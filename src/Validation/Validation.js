@@ -7,9 +7,7 @@ const validation = (props) => {
     };
     if(props.freeFlowText && props.freeFlowText.length >= 5) {
         validationMessage = "Text long enough!";
-        style = {
-            color: 'green'
-        }
+        style.color = 'green';
     }
 
     return (

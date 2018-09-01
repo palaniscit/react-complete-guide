@@ -5,7 +5,7 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 import Validation from './Validation/Validation';
 import CharComponent from './CharComponent/CharComponent';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -141,24 +141,26 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-          <h1>I am a React Application!</h1>
-          <p className={classes.join(' ')}>This is really working.</p>
-          <button 
-            style={style}
-            onClick={this.togglePersons}>Toggle Persons</button>
-          {persons}
-          <UserInput name={this.state.userNames[0].name} changed={this.userNameChangeHandler}></UserInput>
-          <UserOutput userName={this.state.userNames[0].name}>I am paragraph #1</UserOutput>
-          <UserOutput userName={this.state.userNames[1].name}>I am paragraph #2</UserOutput>
+      <StyleRoot>
+        <div className="App">
+            <h1>I am a React Application!</h1>
+            <p className={classes.join(' ')}>This is really working.</p>
+            <button 
+              style={style}
+              onClick={this.togglePersons}>Toggle Persons</button>
+            {persons}
+            <UserInput name={this.state.userNames[0].name} changed={this.userNameChangeHandler}></UserInput>
+            <UserOutput userName={this.state.userNames[0].name}>I am paragraph #1</UserOutput>
+            <UserOutput userName={this.state.userNames[1].name}>I am paragraph #2</UserOutput>
 
-          <label>Free flow text: </label>
-          <input type="text" value={this.state.freeFlowText} onChange={this.freeFlowTextChangeHandler}/>
-          {freeFlowTextLength}
-          <Validation freeFlowText={this.state.freeFlowText}></Validation>
+            <label>Free flow text: </label>
+            <input type="text" value={this.state.freeFlowText} onChange={this.freeFlowTextChangeHandler}/>
+            {freeFlowTextLength}
+            <Validation freeFlowText={this.state.freeFlowText}></Validation>
 
-          {charComponents}
-      </div>
+            {charComponents}
+        </div>
+      </StyleRoot>
     );
   }
 }
